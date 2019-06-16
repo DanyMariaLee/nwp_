@@ -1,8 +1,0 @@
-[0m[[0m[0minfo[0m] [0m[0m[32mInputDataParserSpec:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mInputDataParser[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mparseWeather[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should produce WeatherInput data[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mparseWeather[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should fail with wrong condition data[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mparseWeather[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should fail with wrong data format in column[0m[0m
