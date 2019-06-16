@@ -1,7 +1,0 @@
-#Successful Tests
-#Sun Jun 16 23:38:06 AEST 2019
-au.com.ms.parser.DateParserSpec=1560692286067
-au.com.ms.parser.ConfigParserSpec=1560692286285
-au.com.ms.service.PredictionServiceSpec=1560692286125
-au.com.ms.domain.OutputFormatSpec=1560692286058
-au.com.ms.parser.InputDataParserSpec=1560692286128

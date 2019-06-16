@@ -1,5 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/marina/IdeaProjects/nwp/src/test/resources/wrongcondition.csv,/Users/marina/IdeaProjects/nwp/target/scala-2.12/test-classes/wrongcondition.csv)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/marina/IdeaProjects/nwp/src/test/resources/input.csv,/Users/marina/IdeaProjects/nwp/target/scala-2.12/test-classes/input.csv)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/marina/IdeaProjects/nwp/src/test/resources/wrongformat.csv,/Users/marina/IdeaProjects/nwp/target/scala-2.12/test-classes/wrongformat.csv)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/marina/IdeaProjects/nwp/src/test/resources/application.conf,/Users/marina/IdeaProjects/nwp/target/scala-2.12/test-classes/application.conf)[0m
