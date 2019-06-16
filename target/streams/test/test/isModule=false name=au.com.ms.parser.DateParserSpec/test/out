@@ -1,0 +1,6 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mDateParserSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mDateParser[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mparseDate[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should format the date correctly[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mparseDate[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should fail to format the date correctly[0m[0m

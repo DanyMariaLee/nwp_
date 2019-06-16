@@ -1,0 +1,4 @@
+location,latitude,longitude,elevation,conditions,temperature,pressure,humidity,time
+Melbourne,-37.814,"dddd",7,sunny,12.5,1010.3,97,1560595673042
+Amsterdam,52.379189,4.899431,13,sunny,30.5,998.4,96,1560595677042
+Moscow,55.98,37.18,"kkk",sunny,-20,1114.1,83,1560595673042

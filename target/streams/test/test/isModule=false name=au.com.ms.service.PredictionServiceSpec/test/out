@@ -1,0 +1,10 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mPredictionServiceSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPredictionService[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mgenCondition[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should generate condition type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mgen[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should produce value for custom max, min and delta[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mpredict[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should produce new WeatherData[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mforecast[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should predict weather for seven days based on input grid[0m[0m

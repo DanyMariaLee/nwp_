@@ -1,0 +1,16 @@
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(au.com.ms.parser.ConfigParserSpec, org.scalatest.tools.Framework$$anon$1@39e63337, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(au.com.ms.service.PredictionServiceSpec, org.scalatest.tools.Framework$$anon$1@39e63337, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(au.com.ms.parser.InputDataParserSpec, org.scalatest.tools.Framework$$anon$1@39e63337, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(au.com.ms.parser.DateParserSpec, org.scalatest.tools.Framework$$anon$1@39e63337, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(au.com.ms.domain.OutputFormatSpec, org.scalatest.tools.Framework$$anon$1@39e63337, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 530 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 11[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 5, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 11, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	au.com.ms.service.PredictionServiceSpec[0m
+[0m[[0m[0mdebug[0m] [0m[0m	au.com.ms.parser.InputDataParserSpec[0m
+[0m[[0m[0mdebug[0m] [0m[0m	au.com.ms.parser.ConfigParserSpec[0m
+[0m[[0m[0mdebug[0m] [0m[0m	au.com.ms.domain.OutputFormatSpec[0m
+[0m[[0m[0mdebug[0m] [0m[0m	au.com.ms.parser.DateParserSpec[0m
