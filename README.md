@@ -18,6 +18,39 @@ For input we have 14 different locations with starting conditions.
 The idea is to show how with the same input functions produce the same output.
 After calculation is done file with output is saved.
 
+##### Sample output for one location
+
+```csv
+Melbourne|-37.814,144.96332,7.0|2019-06-15 20:54:33|Snow|+12|990.3|96
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:01:13|Sunny|+11.5|970.3|95
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:07:53|Rain|+11|950.3|94
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:14:33|Snow|+10.5|930.3|93
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:21:13|Sunny|+10|910.3|92
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:27:53|Rain|+9.5|890.3|91
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:34:33|Snow|+9|870.3|90
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:41:13|Sunny|+8.5|850.3|89
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:47:53|Rain|+8|830.3|88
+Melbourne|-37.814,144.96332,7.0|2019-06-15 21:54:33|Snow|+7.5|810.3|87
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:01:13|Sunny|+7|830.3|86
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:07:53|Rain|+6.5|850.3|85
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:14:33|Snow|+6|870.3|84
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:21:13|Sunny|+5.5|890.3|83
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:27:53|Rain|+5|910.3|82
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:34:33|Snow|+4.5|930.3|81
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:41:13|Sunny|+4|950.3|80
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:47:53|Rain|+3.5|970.3|79
+Melbourne|-37.814,144.96332,7.0|2019-06-15 22:54:33|Snow|+3|990.3|78
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:01:13|Sunny|+2.5|1010.3|77
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:07:53|Rain|+2|1030.3|76
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:14:33|Snow|+1.5|1050.3|75
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:21:13|Sunny|+1|1070.3|74
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:27:53|Rain|+0.5|1090.3|73
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:34:33|Snow|0|1110.3|72
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:41:13|Sunny|-0.5|1130.3|71
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:47:53|Rain|-1|1150.3|70
+Melbourne|-37.814,144.96332,7.0|2019-06-15 23:54:33|Snow|-1.5|1170.3|69
+```
+
 ###### Libraries:
 [Cats](https://typelevel.org/cats/) is used to take care of the side-effects.
 
@@ -29,7 +62,7 @@ Unit tests done with [scalatest](http://www.scalatest.org).
 ### Configuration.
 
 Default configuration is set in [application.conf](https://github.com/DanyMariaLee/nwp_/blob/master/src/main/resources/application.conf).
-```
+```csv
 end-date = "2019-06-17"
 step = 1000
 print-out = true
