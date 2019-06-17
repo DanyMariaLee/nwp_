@@ -54,7 +54,7 @@ Steps to success:
 
 With default settings we will expect around 96MB of data in the output.csv, that will be written alongside with `build.sbt` in the project folder.
 
-####WARNING
+#### WARNING
 Written on mac, application contains tests that are actually writing into files. As I don't work on Windows machine I don't know if those tests will run. Better, use mac to run this app.
 
 M.
