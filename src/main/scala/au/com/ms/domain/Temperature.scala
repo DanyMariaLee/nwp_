@@ -6,5 +6,8 @@ case class Temperature(value: Double) {
     case _ => ""
   }
 
-  override def toString: String = sign + value
+  override def toString: String =
+    sign + {
+      if (value.toString.split('.').last == "0") value.toInt else value
+    }
 }

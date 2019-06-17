@@ -37,7 +37,7 @@ input-file = "input.csv"
 output-file = "output.csv"
 ```
 
-Script is using `TODAY` as a start date and we will provide `end-date`. After reaching this date simpulation stops.
+Script is using `2019-06-15` as a start date and we will provide `end-date` = `2019-06-16`. After reaching this date simulation stops.
 
 Parameter `step` is a calculation step in milliseconds. Default 1000 means that we will recalculate weather every 1000 milliseconds.
 
@@ -52,6 +52,9 @@ Steps to success:
 - run tests `sbt test`
 - run `sbt run`
 
-With default settings we will expect around 96MB od data in the output.csv if `end-date` is "tomorrow", that will be written alongside with `build.sbt` in the project folder.
+With default settings we will expect around 96MB of data in the output.csv, that will be written alongside with `build.sbt` in the project folder.
+
+####WARNING
+Written on mac, application contains tests that are actually writing into files. As I don't work on Windows machine I don't know if those tests will run. Better, use mac to run this app.
 
 M.
