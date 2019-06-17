@@ -19,9 +19,17 @@ class PredictionServiceSpec extends FlatSpec
 
   "gen" should "produce value for custom max, min and delta" in {
 
-    gen(27, -30, 30, 1) shouldBe 26
-    gen(30, -30, 30, 1) shouldBe 29
-    gen(-10, -30, 30, 1) shouldBe -11
+    gen(30, -30, 30, 0.5, None) shouldBe 29.5
+    gen(29.5, -30, 30, 0.5, Some(30)) shouldBe 29
+    gen(29, -30, 30, 0.5, Some(29.5)) shouldBe 28.5
+    gen(28.5, -30, 30, 0.5, Some(29)) shouldBe 28
+    gen(28, -30, 30, 0.5, Some(28.5)) shouldBe 27.5
+
+    gen(-30, -30, 30, 0.5, None) shouldBe -29.5
+    gen(-29.5, -30, 30, 0.5, Some(-30)) shouldBe -29
+    gen(-29, -30, 30, 0.5, Some(-29.5)) shouldBe -28.5
+    gen(-28.5, -30, 30, 0.5, Some(-29)) shouldBe -28
+    gen(-28, -30, 30, 0.5, Some(-28.5)) shouldBe -27.5
   }
 
   "predict" should "produce new WeatherData for one step" in {
@@ -74,7 +82,7 @@ class PredictionServiceSpec extends FlatSpec
           Coordinate(-34.92, 138.62, 48),
           1560595674042L,
           Sunny,
-          Temperature(39.4),
+          Temperature(29.4),
           1114,
           12
         )
@@ -92,27 +100,27 @@ class PredictionServiceSpec extends FlatSpec
       Vector(
         WeatherData(sydney, c1, 1560595675042L, Snow, Temperature(12.0), 990.3, 96),
         WeatherData(melbourne, c2, 1560595675042L, Sunny, Temperature(-5.8), 978.4, 54),
-        WeatherData(adelaide, c3, 1560595675042L, Rain, Temperature(38.9), 1094, 11)
+        WeatherData(adelaide, c3, 1560595675042L, Rain, Temperature(28.9), 1094.0, 11)
       ),
       Vector(
         WeatherData(sydney, c1, 1560595676042L, Sunny, Temperature(11.5), 970.3, 95),
         WeatherData(melbourne, c2, 1560595676042L, Rain, Temperature(-6.3), 958.4, 53),
-        WeatherData(adelaide, c3, 1560595676042L, Snow, Temperature(38.4), 1074, 10)
+        WeatherData(adelaide, c3, 1560595676042L, Snow, Temperature(28.4), 1074.0, 10)
       ),
       Vector(
-        WeatherData(sydney, c1, 1560595677042L, Rain, Temperature(11.0), 950.3, 94),
+        WeatherData(sydney, c1, 1560595677042L, Rain, Temperature(11), 950.3, 94),
         WeatherData(melbourne, c2, 1560595677042L, Snow, Temperature(-6.8), 938.4, 52),
-        WeatherData(adelaide, c3, 1560595677042L, Sunny, Temperature(37.9), 1054, 9)
+        WeatherData(adelaide, c3, 1560595677042L, Sunny, Temperature(27.9), 1054.0, 9)
       ),
       Vector(
         WeatherData(sydney, c1, 1560595678042L, Snow, Temperature(10.5), 930.3, 93),
         WeatherData(melbourne, c2, 1560595678042L, Sunny, Temperature(-7.3), 918.4, 51),
-        WeatherData(adelaide, c3, 1560595678042L, Rain, Temperature(37.4), 1034, 8)
+        WeatherData(adelaide, c3, 1560595678042L, Rain, Temperature(27.4), 1034.0, 8)
       ),
       Vector(
-        WeatherData(sydney, c1, 1560595679042L, Sunny, Temperature(10.0), 910.3, 92),
+        WeatherData(sydney, c1, 1560595679042L, Sunny, Temperature(10), 910.3, 92),
         WeatherData(melbourne, c2, 1560595679042L, Rain, Temperature(-7.8), 898.4, 50),
-        WeatherData(adelaide, c3, 1560595679042L, Snow, Temperature(36.9), 1014, 7)
+        WeatherData(adelaide, c3, 1560595679042L, Snow, Temperature(26.9), 1014.0, 7)
       )
     )
 
