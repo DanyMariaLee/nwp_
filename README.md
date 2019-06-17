@@ -52,7 +52,7 @@ Steps to success:
 - run tests `sbt test`
 - run `sbt run`
 
-To take a look at the test coverage right-click on `nwp` folder in `IntellijIdea` on `Run with coverage`.
+To take a look at the test coverage right-click on `nwp` folder in `IntellijIdea`, and then on `Run with coverage`.
 Results are: `Class 77%, Method 91%, Line 95%`
 
 With default settings we will expect around 96MB of data in the output.csv, that will be written alongside with `build.sbt` in the project folder.
