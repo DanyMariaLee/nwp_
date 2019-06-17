@@ -7,7 +7,6 @@ import cats.effect.IO
 
 trait FileWriter {
 
-  /** Writes data next to the app.jar */
   def write(fileName: String,
             data: Vector[Vector[WeatherData]],
             addHeader: Boolean = true
