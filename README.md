@@ -45,6 +45,7 @@ With `print-out` set to `true` application will output all the data in console.
 
 ### Quick start.
 Prerequisites: `SBT 1.2.8`, `scala 2.12`
+
 Steps to success:
 - clone repo
 - navigate to the project directory: `$ cd /nwp_`
