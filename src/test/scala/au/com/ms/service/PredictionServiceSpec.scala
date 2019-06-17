@@ -24,7 +24,7 @@ class PredictionServiceSpec extends FlatSpec
     gen(-10, -30, 30, 1) shouldBe -11
   }
 
-  "predict" should "produce new WeatherData" in {
+  "predict" should "produce new WeatherData for one step" in {
     val input = WeatherData(
       "Sydney",
       Coordinate(-33.86, 151.21, 39),
@@ -47,7 +47,7 @@ class PredictionServiceSpec extends FlatSpec
     predict(input, 1000) shouldBe expected
   }
 
-  "forecast" should "predict weather for seven days based on input grid" in {
+  "forecast" should "predict weather for 5 steps based on input grid" in {
 
     val grid =
       Vector(
@@ -92,27 +92,27 @@ class PredictionServiceSpec extends FlatSpec
       Vector(
         WeatherData(sydney, c1, 1560595675042L, Snow, Temperature(12.0), 990.3, 96),
         WeatherData(melbourne, c2, 1560595675042L, Sunny, Temperature(-5.8), 978.4, 54),
-        WeatherData(adelaide, c3, 1560595675042L, Rain, Temperature(38.9), 1094,11)
+        WeatherData(adelaide, c3, 1560595675042L, Rain, Temperature(38.9), 1094, 11)
       ),
       Vector(
-        WeatherData(sydney, c1, 1560595676042L, Sunny, Temperature(11.5), 970.3,95),
-        WeatherData(melbourne, c2, 1560595676042L, Rain, Temperature(-6.3), 958.4,53),
-        WeatherData(adelaide, c3, 1560595676042L, Snow, Temperature(38.4), 1074,10)
+        WeatherData(sydney, c1, 1560595676042L, Sunny, Temperature(11.5), 970.3, 95),
+        WeatherData(melbourne, c2, 1560595676042L, Rain, Temperature(-6.3), 958.4, 53),
+        WeatherData(adelaide, c3, 1560595676042L, Snow, Temperature(38.4), 1074, 10)
       ),
       Vector(
-        WeatherData(sydney, c1, 1560595677042L, Rain, Temperature(11.0), 950.3,94),
-        WeatherData(melbourne, c2, 1560595677042L, Snow, Temperature(-6.8), 938.4,52),
-        WeatherData(adelaide, c3, 1560595677042L, Sunny, Temperature(37.9), 1054,9)
+        WeatherData(sydney, c1, 1560595677042L, Rain, Temperature(11.0), 950.3, 94),
+        WeatherData(melbourne, c2, 1560595677042L, Snow, Temperature(-6.8), 938.4, 52),
+        WeatherData(adelaide, c3, 1560595677042L, Sunny, Temperature(37.9), 1054, 9)
       ),
       Vector(
-        WeatherData(sydney, c1, 1560595678042L, Snow, Temperature(10.5), 930.3,93),
-        WeatherData(melbourne, c2, 1560595678042L, Sunny, Temperature(-7.3), 918.4,51),
-        WeatherData(adelaide, c3, 1560595678042L, Rain, Temperature(37.4), 1034,8)
+        WeatherData(sydney, c1, 1560595678042L, Snow, Temperature(10.5), 930.3, 93),
+        WeatherData(melbourne, c2, 1560595678042L, Sunny, Temperature(-7.3), 918.4, 51),
+        WeatherData(adelaide, c3, 1560595678042L, Rain, Temperature(37.4), 1034, 8)
       ),
       Vector(
-        WeatherData(sydney, c1, 1560595679042L, Sunny, Temperature(10.0), 910.3,92),
-        WeatherData(melbourne, c2, 1560595679042L, Rain, Temperature(-7.8), 898.4,50),
-        WeatherData(adelaide, c3, 1560595679042L, Snow, Temperature(36.9), 1014,7)
+        WeatherData(sydney, c1, 1560595679042L, Sunny, Temperature(10.0), 910.3, 92),
+        WeatherData(melbourne, c2, 1560595679042L, Rain, Temperature(-7.8), 898.4, 50),
+        WeatherData(adelaide, c3, 1560595679042L, Snow, Temperature(36.9), 1014, 7)
       )
     )
 
@@ -123,4 +123,65 @@ class PredictionServiceSpec extends FlatSpec
     result shouldBe expected
   }
 
+  "forecast" should "predict weather for different steps based on input grid" in {
+
+    val grid =
+      Vector(
+        WeatherData(
+          "Sydney",
+          Coordinate(-33.86, 151.21, 39),
+          1560595674042L,
+          Rain,
+          Temperature(12.5),
+          1010.3,
+          97
+        ),
+        WeatherData(
+          "Melbourne",
+          Coordinate(-37.83, 144.98, 7),
+          1560595674042L,
+          Snow,
+          Temperature(-5.3),
+          998.4,
+          55
+        ),
+        WeatherData(
+          "Adelaide",
+          Coordinate(-34.92, 138.62, 48),
+          1560595674042L,
+          Sunny,
+          Temperature(39.4),
+          1114,
+          12
+        )
+      )
+
+    List(1, 10, 100, 1000).foreach { step =>
+      forecast(grid, step, 1560595679042L).unsafeRunSync().length shouldBe 5000 / step
+    }
+  }
+
+  "forecast" should "fail on empty weather data" in {
+
+    intercept[RuntimeException](forecast(Vector(), 10, 1L)
+      .unsafeRunSync()).getMessage shouldBe "Input weather data is empty"
+  }
+
+  "forecast" should "fail because end-date < start date" in {
+
+    val data = Vector(WeatherData("City", Coordinate(0, 0, 0), 10L, Sunny, Temperature(0), 0, 0))
+
+    intercept[RuntimeException](forecast(data, 1, 1L)
+      .unsafeRunSync()).getMessage shouldBe
+      "Weather prediction is available for `end-date` > start date in input data file." +
+        "Current parameters: `end-date` = 1, start date: 10"
+  }
+
+  "forecast" should "fail because step is too big" in {
+
+    val data = Vector(WeatherData("City", Coordinate(0, 0, 0), 1L, Sunny, Temperature(0), 0, 0))
+
+    intercept[RuntimeException](forecast(data, 100, 10L)
+      .unsafeRunSync()).getMessage shouldBe "Calculation step is too big for provided date range"
+  }
 }

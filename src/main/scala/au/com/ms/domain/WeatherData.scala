@@ -27,9 +27,14 @@ case class WeatherData(location: String,
       pressure,
       humidity
     ).mkString("|")
+
 }
 
 object WeatherData {
   private val format = "yyyy-MM-dd HH:mm:ss"
   private val sdf = new SimpleDateFormat(format)
+
+  //for output file header
+  def columnNames: String =
+    "location,latitude,longitude,elevation,conditions,temperature,pressure,humidity,time\n"
 }

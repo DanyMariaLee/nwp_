@@ -23,7 +23,16 @@ trait PredictionService {
       }
     }
 
-    forecast(weather, step, endDate, Vector())
+    weather.headOption match {
+      case Some(w) if w.time + step <= endDate => forecast(weather, step, endDate, Vector())
+      case Some(w) if w.time > endDate => IO.raiseError(
+        new RuntimeException("Weather prediction is available for `end-date` > start date in input data file." +
+          s"Current parameters: `end-date` = $endDate, start date: ${w.time}")
+      )
+      case Some(w) if w.time + step > endDate => IO.raiseError(
+        new RuntimeException("Calculation step is too big for provided date range"))
+      case None => IO.raiseError(new RuntimeException("Input weather data is empty"))
+    }
   }
 
   /**
